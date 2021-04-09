@@ -12,7 +12,7 @@ class PointTest {
     @Test
     @DisplayName("최초에는 어느 지점과도 연결되지 않는다.")
     void shouldNotConnectAnyPointOriginally() {
-        Point point = new Point();
+        Point point = new Point(new Position());
 
         assertThat(point.isConnectedAnotherPoint()).isFalse();
     }

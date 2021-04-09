@@ -2,12 +2,18 @@ package nextstep.ladder.domain.ladder;
 
 import nextstep.ladder.domain.ladder.exception.PointAlreadyConnectedException;
 
-public class Point {
+class Point {
 
     private Point connectedPoint;
+    private final Position position;
 
     Point() {
+        this(new Position(0));
+    }
+
+    Point(Position position) {
         connectedPoint = this;
+        this.position = position;
     }
 
     void connectTo(Point point) {
@@ -26,8 +32,12 @@ public class Point {
         return connectedPoint == point;
     }
 
-    public Point getConnectedPoint() {
-        return connectedPoint;
+    public Position getPositionOfConnectedPoint() {
+        return connectedPoint.position;
+    }
+
+    public boolean hasPosition(Position thatPosition) {
+        return position.equals(thatPosition);
     }
 
 }
